@@ -18,8 +18,7 @@ public class Main {
         System.out.println("Size " + list2.size());
         System.out.println("get " + list2.get(1));
 
-
-
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         MyLinkedList<String> list = new MyLinkedList<>();
         System.out.println("Size " + list.size());
         list.add("20");
@@ -43,6 +42,31 @@ public class Main {
         System.out.println("get " + list.get(3));
         list.remove(3);
         System.out.println(list);
+
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        MyLinkedQueue<String> queue = new MyLinkedQueue<>();
+        System.out.println("size = " + queue.size());
+        System.out.println("peak = " + queue.peek());
+        System.out.println(queue);
+        System.out.println("pool = " + queue.poll());
+        System.out.println(queue);
+
+        queue.add("20");
+        System.out.println("peak = " + queue.peek());
+        System.out.println(queue);
+        System.out.println("pool = " + queue.poll());
+        System.out.println(queue);
+        queue.add("21");
+        queue.add("22");
+        queue.add("23");
+        queue.add("24");
+        queue.add("25");
+        System.out.println("size = " + queue.size());
+        System.out.println(queue);
+        System.out.println("peak = " + queue.peek());
+        System.out.println(queue);
+        System.out.println("pool = " + queue.poll());
+        System.out.println(queue);
 
     }
 }
