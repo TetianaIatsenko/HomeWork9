@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String [] args){
-        MyArrayList<String> list2 = new MyArrayList<>();
+        System.out.println("My ArrayList!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        MyList<String> list2 = new MyArrayList<>();
         System.out.println("Size " + list2.size());
         list2.add("20");
         System.out.println(list2);
@@ -8,7 +12,7 @@ public class Main {
         list2.remove(0);
         list2.add("21");
         list2.add("22");
-        list2.add("23");
+        list2.add(null);
         list2.add("24");
         System.out.println(list2);
         list2.remove(0);
@@ -17,9 +21,11 @@ public class Main {
         System.out.println(list2);
         System.out.println("Size " + list2.size());
         System.out.println("get " + list2.get(1));
+        list2.clear();
+        System.out.println(list2);
 
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        MyLinkedList<String> list = new MyLinkedList<>();
+        System.out.println("My LinkedList!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        MyList<String> list = new MyLinkedList<>();
         System.out.println("Size " + list.size());
         list.add("20");
         System.out.println(list);
@@ -29,7 +35,7 @@ public class Main {
         list.add("21");
         list.add("22");
         list.add("23");
-        list.add("24");
+        list.add(null);
         list.add("25");
         list.add("26");
 
@@ -42,9 +48,11 @@ public class Main {
         System.out.println("get " + list.get(3));
         list.remove(3);
         System.out.println(list);
+        list.clear();
+        System.out.println(list);
 
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        MyLinkedQueue<String> queue = new MyLinkedQueue<>();
+        System.out.println("My Queue !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        MyQueue<String> queue = new MyLinkedQueue<>();
         System.out.println("size = " + queue.size());
         System.out.println("peak = " + queue.peek());
         System.out.println(queue);
@@ -59,7 +67,7 @@ public class Main {
         queue.add("21");
         queue.add("22");
         queue.add("23");
-        queue.add("24");
+        queue.add(null);
         queue.add("25");
         System.out.println("size = " + queue.size());
         System.out.println(queue);
@@ -67,6 +75,69 @@ public class Main {
         System.out.println(queue);
         System.out.println("pool = " + queue.poll());
         System.out.println(queue);
+        queue.clear();
+        System.out.println(queue);
+
+        System.out.println("My LinkedStack!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        MyStack<String> stack = new MyLinkedStack<>();
+        stack.push("20");
+        System.out.println(stack);
+        stack.remove(0);
+        System.out.println(stack);
+        stack.push("21");
+        stack.push("22");
+        stack.push("23");
+        stack.push("24");
+        stack.push("25");
+        stack.push("26");
+        stack.push("27");
+        stack.push(null);
+        stack.remove(2);
+        System.out.println(stack);
+        System.out.println("size = " + stack.size());
+        System.out.println("Stack peek = " + stack.peek());
+        System.out.println(stack);
+        System.out.println("Stack pop = " + stack.pop());
+        System.out.println(stack);
+        stack.clear();
+        System.out.println(stack);
+
+        System.out.println("My HashMap!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        MyMap<Integer, Integer> map = new MyHashMap();
+        map.put(5, 1);
+        map.put(6, 2);
+        map.put(6, 100000000);
+        map.put(7, 3);
+        map.put(8, 4);
+        map.put(1000000, 2);
+        map.put(1000002, 2);
+        map.put(1000001, 2);
+        map.put(1000003, 2);
+        map.put(1000004, 2);
+        map.put(1000005, 2);
+        map.put(1000006, 2);
+        map.put(1000007, 2);
+        map.put(1000008, 2);
+        map.put(1000009, 2);
+        map.put(1000010, 2);
+        map.put(1000011, 2);
+        map.put(1000012, 2);
+        map.put(1000012, 2);
+        map.put(1000014, 2);
+        map.put(null, 10);
+        map.put(58, null);
+        map.put(null, 11);
+        System.out.println(map);
+        System.out.println("size = " + map.size());
+        System.out.println("get by key  " + 7 + " = " + map.get(7));
+        System.out.println("get by key  null" + " = " + map.get(null));
+        System.out.println("remove by key  " + 7 + " = " + map.remove(7));
+        System.out.println("remove by key  " + 1000006 + " = " + map.remove(1000006));
+        System.out.println("remove by key  null" + " = " + map.remove(null));
+        System.out.println(map);
+        System.out.println("size = " + map.size());
+        map.clear();
+        System.out.println(map);
 
     }
 }

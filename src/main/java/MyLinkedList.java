@@ -1,6 +1,4 @@
-import java.util.Arrays;
-
-public class MyLinkedList<T> implements MyList<T>{
+public class MyLinkedList<T> extends MyKollection implements MyList<T>{
     private class Element<T>{
         private T value;
         private Element<T> prev;
@@ -47,7 +45,6 @@ public class MyLinkedList<T> implements MyList<T>{
         }
     }
 
-    private int size = 0;
     private Element<T> firstElement;
     private Element<T> lastElement;
 
@@ -105,12 +102,6 @@ public class MyLinkedList<T> implements MyList<T>{
     }
 
     @Override
-    public int size() {
-        return size;
-    }
-
-
-    @Override
     public T get(int index) {
         if(index >= size)
             throw new IndexOutOfBoundsException(getExceptionString(index, size));
@@ -127,7 +118,7 @@ public class MyLinkedList<T> implements MyList<T>{
         builder.append("[");
 
         for (int i = 0; i < size; i++){
-            builder.append(element.getValue().toString());
+            builder.append(element.getValue());
             if(element.getNext() != null)
                 builder.append(" ,");
             element = element.getNext();

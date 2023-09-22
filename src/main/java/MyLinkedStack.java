@@ -1,10 +1,14 @@
-public class MyLinkedQueue<T> extends MyKollection implements MyQueue<T>{
+public class MyLinkedStack<T> extends MyKollection implements MyStack<T>{
     private class Element<T>{
         private T value;
         private Element<T> prev;
+
         public Element(T value, Element prev){
-            this.value = value;
             this.prev = prev;
+            this.value = value;
+        }
+        public Element(T value){
+            this(value, null);
         }
 
         public T getValue() {
@@ -22,25 +26,39 @@ public class MyLinkedQueue<T> extends MyKollection implements MyQueue<T>{
         public void setPrev(Element<T> prev) {
             this.prev = prev;
         }
-
-        @Override
-        public String toString() {
-            return "Element{" +
-                    "value=" + value +
-                    '}';
-        }
     }
     private Element<T> lastElement;
 
     @Override
-    public boolean add(T value) {
+    public void push(T value) {
         if(lastElement == null){
-            lastElement = new Element<T>(value, null);
+            lastElement = new Element<>(value);
         }else{
-            Element<T> element = new Element<>(value, lastElement);
-            lastElement = element;
+            lastElement = new Element<>(value, lastElement);
         }
         size++;
+    }
+
+    @Override
+    public boolean remove(int index) {
+        if(index >= size)
+            throw new IndexOutOfBoundsException("Steak have size = " + size + " , index is " + index);
+        if(lastElement.getPrev() == null){
+            lastElement = null;
+        }else {
+            Element<T> element = lastElement;
+            Element<T> prev = lastElement.getPrev();
+            Element<T> next = null;
+            for (int i = 1; i <= index; i++) {
+                next = element;
+                element = prev;
+                prev = element.getPrev();
+            }
+            next.setPrev(prev);
+
+        }
+
+        size--;
         return true;
     }
 
@@ -54,35 +72,18 @@ public class MyLinkedQueue<T> extends MyKollection implements MyQueue<T>{
     public T peek() {
         if(lastElement == null)
             return null;
-        Element<T> element = lastElement;
-        while (element.getPrev() != null){
-            element = element.getPrev();
-        }
-        return element.getValue();
+        return lastElement.getValue();
     }
 
     @Override
-    public T poll() {
+    public T pop() {
         if(lastElement == null)
             return null;
-        T value;
-        if(lastElement.getPrev() == null){
-            value = lastElement.getValue();
-            lastElement = null;
-        }else {
-            Element<T> element = lastElement;
-            Element<T> nextElement = lastElement;
-            while (element.getPrev() != null) {
-                nextElement = element;
-                element = element.getPrev();
-            }
-            nextElement.setPrev(null);
-            value = element.getValue();
-        }
+        T value = lastElement.getValue();
+        lastElement = lastElement.getPrev();
         size--;
         return value;
     }
-
     @Override
     public String toString() {
         if(lastElement == null)
@@ -91,10 +92,14 @@ public class MyLinkedQueue<T> extends MyKollection implements MyQueue<T>{
         StringBuilder builder = new StringBuilder();
         builder.append("[");
         while (element != null){
-            builder.insert(1, element.getValue() + ((element == lastElement)?"":", "));
+            builder.append(element.getValue());
+            if(element.getPrev() != null){
+                builder.append(", ");
+            }
             element = element.getPrev();
         }
         builder.append("]");
         return builder.toString();
     }
+
 }
