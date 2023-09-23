@@ -1,4 +1,4 @@
-public class MyLinkedQueue<T> extends MyKollection implements MyQueue<T>{
+public class MyLinkedQueue<T> extends MyCollection implements MyQueue<T>{
     private class Element<T>{
         private T value;
         private Element<T> prev;

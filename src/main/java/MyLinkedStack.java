@@ -1,4 +1,4 @@
-public class MyLinkedStack<T> extends MyKollection implements MyStack<T>{
+public class MyLinkedStack<T> extends MyCollection implements MyStack<T>{
     private class Element<T>{
         private T value;
         private Element<T> prev;

@@ -1,4 +1,4 @@
-public class MyHashMap<K, V> extends MyKollection implements MyMap<K, V>{
+public class MyHashMap<K, V> extends MyCollection implements MyMap<K, V>{
     private static int ARRAY_LENGTH = 20;
     private Element<K, V>[] array;
 

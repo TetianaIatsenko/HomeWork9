@@ -1,4 +1,4 @@
-public class MyLinkedList<T> extends MyKollection implements MyList<T>{
+public class MyLinkedList<T> extends MyCollection implements MyList<T>{
     private class Element<T>{
         private T value;
         private Element<T> prev;

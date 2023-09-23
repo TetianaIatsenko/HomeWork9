@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class MyArrayList<T> extends MyKollection implements MyList<T>{
+public class MyArrayList<T> extends MyCollection implements MyList<T>{
     private static int DEFAULT_LENGTH = 10;
     private Object[] array;
 
